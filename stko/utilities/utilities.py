@@ -1686,6 +1686,7 @@ def to_rdkit_mol_without_metals(mol, metal_atoms, metal_bonds):
         RDKit molecule with metal atoms replaced with H atoms.
 
     """
+
     edit_mol = rdkit.EditableMol(rdkit.Mol())
     for atom in mol.get_atoms():
         if atom in metal_atoms:
@@ -1705,7 +1706,10 @@ def to_rdkit_mol_without_metals(mol, metal_atoms, metal_bonds):
         edit_mol.AddBond(
             beginAtomIdx=bond.get_atom1().get_id(),
             endAtomIdx=bond.get_atom2().get_id(),
-            order=rdkit.BondType(bond.get_order())
+            order=(
+                rdkit.BondType.DATIVE if bond.get_order() == 9
+                else rdkit.BondType(bond.get_order())
+            ),
         )
 
     edit_mol = edit_mol.GetMol()
