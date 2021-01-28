@@ -10,6 +10,17 @@ Wrappers for calculators within the :mod:`gulp` code.
 Examples
 --------
 
+*A Warning About Atom Typing*
+
+The atom typing is handled by the bond toplogy defined by rdkit, which
+is equivalent to the topology defined by stk. However, upon
+sanitization, rdkit molecules are kekulized, which we have found to
+lead to the use of the `_R` (resonant) atom types instead of `_2`
+(SP2) atom types for some carbon and oxygen atoms near aromatic rings.
+
+
+*Using UFF4MOF for Metal Optimisations*
+
 While metal atoms are not required, UFF4MOF is useful because it
 encompasses almost all chemical environments commonly found in
 metal-organic structures. Better forcefields exist for purely
@@ -17,6 +28,7 @@ organic molecules! An interface with GULP is provided, which takes
 the forcefield types assigned by RDKit for non-metal atoms and
 user defined forcefield types for metal atoms to perform geometry
 optimisations.
+
 
 .. code-block:: python
 
@@ -415,6 +427,7 @@ class GulpUFFOptimizer(Optimizer):
         GraphMol/ForceFieldHelpers/UFF/AtomTyper.cpp
 
         """
+
         atnum = int(atom.GetAtomicNum())
         atomkey = atom.GetSymbol()
         if len(atomkey) == 1:
