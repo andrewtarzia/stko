@@ -462,12 +462,12 @@ class GulpUFFOptimizer(Optimizer):
                     atomkey += '1'
                 elif hybrid == rdkit.HybridizationType.SP2:
                     chk1a = rdkit.Atom.GetIsAromatic(atom)
-                    bonds = rdkit.Atom.GetBonds(atom)
+                    # bonds = rdkit.Atom.GetBonds(atom)
                     conjugated = False
-                    for bond in bonds:
-                        if rdkit.Bond.GetIsConjugated(bond):
-                            conjugated = True
-                            break
+                    # for bond in bonds:
+                    #     if rdkit.Bond.GetIsConjugated(bond):
+                    #         conjugated = True
+                    #         break
                     chk2a = conjugated
                     chk3a = atnum in [6, 7, 8, 16]
                     chk4a = (chk1a or chk2a)
