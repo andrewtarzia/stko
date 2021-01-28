@@ -544,7 +544,6 @@ class GulpUFFOptimizer(Optimizer):
                 self.atom_labels[i.get_id()][0]
                 for i in [bond.get_atom1(), bond.get_atom2()]
             ]
-
             # Set bond orders.
             if has_h_atom(bond):
                 # H has bond order of 1.
@@ -648,10 +647,11 @@ class GulpUFFOptimizer(Optimizer):
         None : :class:`NoneType`
 
         """
+
         metal_atoms = get_metal_atoms(mol)
         metal_ids = [i.get_id() for i in metal_atoms]
 
-        if len(metal_ids) > 1 and self._metal_FF is None:
+        if len(metal_ids) > 0 and self._metal_FF is None:
             raise ExpectedMetal(
                 'No metal FF provivded, but metal atoms were found ('
                 f'{metal_atoms})'
@@ -667,7 +667,6 @@ class GulpUFFOptimizer(Optimizer):
         # Get forcefield parameters.
         rdkit.SanitizeMol(edit_mol)
         self.atom_labels = {}
-
         for i in range(edit_mol.GetNumAtoms()):
             if i in metal_ids:
                 self.atom_labels[i] = [None, 'metal', None]
