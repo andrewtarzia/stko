@@ -21,7 +21,18 @@ class TopologyInfo:
 
     def __init__(self, centroids, connectivities, edge_pairs):
         """
+        Initialize a :class:`TopologyInfo`.
 
+        Parameters
+        ----------
+        centroids : :class:`dict`
+            Vertex ids with their positions.
+
+        connectivities : :class:`dict`
+            Vertex ids with their number of connections.
+
+        edge_pairs : :class:`list` of :class:`tuple`
+            List of edge pairs.
 
         """
 
@@ -29,7 +40,7 @@ class TopologyInfo:
         self._connectivities = connectivities
         self._edge_pairs = edge_pairs
 
-    def get_vertex_positions(self):
+    def get_vertex_centroids(self):
         """
         Get the positions of each vertex.
 

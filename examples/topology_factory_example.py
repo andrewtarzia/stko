@@ -24,17 +24,27 @@ def main():
     print(broken_bonds_by_id)
     print(disconnectors)
     print('--')
-    new_topology_graph = stko.TopologyExtractor()
-    tg_info = new_topology_graph.extract_topology(
+    extracted_graph = stko.TopologyExtractor()
+    tg_info = extracted_graph.extract_topology(
         molecule=cage1,
         broken_bonds_by_id=broken_bonds_by_id,
         disconnectors=set(disconnectors),
     )
-    print(tg_info.get_vertex_positions())
+    print(tg_info.get_vertex_centroids())
     print(tg_info.get_connectivities())
     print(tg_info.get_edge_pairs())
     cage1.write('output_directory/tg_cage.mol')
     tg_info.write('output_directory/tg_info.pdb')
+
+    new_toplogy_graph = stko.GenericTopologyGraph(
+        topology_info=tg_info,
+        factory=stko.TopologyFactory(
+            topology_graph=stk.cage.Cage,
+            vertices=(stk.Vertex(), ),
+            edges=(stk.Edge(), ),
+        )
+    )
+    print(new_toplogy_graph.get_topology_graph())
 
 
 if __name__ == "__main__":

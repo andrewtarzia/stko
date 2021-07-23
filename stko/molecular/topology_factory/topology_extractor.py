@@ -63,7 +63,7 @@ class TopologyExtractor:
             broken_bonds_by_id=broken_bonds_by_id,
             disconnectors=set(disconnectors),
         )
-        print(tg_info.get_vertex_positions())
+        print(tg_info.get_vertex_centroids())
         print(tg_info.get_connectivities())
         print(tg_info.get_edge_pairs())
 

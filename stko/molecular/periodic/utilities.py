@@ -13,8 +13,8 @@ def get_approximate_cell_size(molecule, vector_1, vector_2, vector_3):
     """
     Cell size determined from projection of atoms on cell vectors.
 
-    Arguments
-    ---------
+    Parameters
+    ----------
     molecule : :class:`stk.Molecule`
         Molecule to get approximate cell size of.
 
