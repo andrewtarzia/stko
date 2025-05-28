@@ -117,6 +117,8 @@ def main() -> None:
         ).get_energy(ff_cage),
     )
 
+    # Plot geometrical features.
+
 
 if __name__ == "__main__":
     logging.basicConfig(
