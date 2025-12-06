@@ -5,7 +5,11 @@ from typing import Literal
 
 import rdkit.Chem as rdkit  # noqa: N813
 import stk
-from espaloma_charge.openff_wrapper import EspalomaChargeToolkitWrapper
+
+try:
+    from espaloma_charge.openff_wrapper import EspalomaChargeToolkitWrapper
+except ImportError:
+    EspalomaChargeToolkitWrapper = None
 from openff.interchange import Interchange
 from openff.toolkit import ForceField, Molecule, RDKitToolkitWrapper, Topology
 from openmm import app, openmm
