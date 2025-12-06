@@ -22,6 +22,11 @@ logger = logging.getLogger(__name__)
 class OpenBabelEnergy:
     """Uses OpenBabel to calculate forcefield energies.
 
+    .. warning::
+
+        This will not work for Python >= 3.13! See
+        https://github.com/JelfsMaterialsGroup/stko/issues/208
+
     Parameters:
         forcefield:
             Forcefield to use. Options include `uff`, `gaff`,
