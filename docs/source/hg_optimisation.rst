@@ -92,7 +92,7 @@ Again, we define some settings, this time at lower temperature.
 
     # Settings.
     force_field = ForceField("openff_unconstrained-2.1.0.offxml")
-    partial_charges = "espaloma-am1bcc"
+    partial_charges = "mmff94"
     temperature = 300 * openmm.unit.kelvin
     friction = 10 / openmm.unit.picoseconds
     time_step = 1 * openmm.unit.femtoseconds
