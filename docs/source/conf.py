@@ -51,3 +51,4 @@ exclude_patterns: list[str] = []
 
 html_theme = "sphinx_rtd_theme"
 html_static_path = ["_static"]
+html_logo = "_static/sidebar_logo.png"

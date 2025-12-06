@@ -30,6 +30,9 @@ Welcome to stko's documentation!
 
   ⭐ Star us on `GitHub <https://github.com/JelfsMaterialsGroup/stko>`_! ⭐
 
+.. figure:: _static/logo.png
+
+
 Install
 =======
 
@@ -47,8 +50,6 @@ Some optional dependencies are only available through conda:
   mamba install xtb
   # for openbabel
   mamba install openbabel
-  # for mdanalysis
-  mamba install mdanalysis
 
 With OpenMM
 -----------
