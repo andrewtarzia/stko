@@ -70,8 +70,8 @@ _cc_molecule = stk.BuildingBlock("[C][C]")
         CaseData(
             mol1=stk.BuildingBlock("NCCN"),
             mol2=_optimizer.optimize(stk.BuildingBlock("NCCN")),
-            rmsd=0.24492870054279647,
-            kabsch_rmsd=0.188295954166067,
+            rmsd=0.26064179792023834,
+            kabsch_rmsd=0.19260330679258864,
         ),
         CaseData(
             mol1=stk.BuildingBlock("CCCCCC"),
@@ -82,20 +82,20 @@ _cc_molecule = stk.BuildingBlock("[C][C]")
         CaseData(
             mol1=stk.BuildingBlock("CCCCCC"),
             mol2=_optimizer.optimize(stk.BuildingBlock("CCCCCC")),
-            rmsd=0.35636491354918015,
-            kabsch_rmsd=0.35044001253075,
+            rmsd=0.19244341360361064,
+            kabsch_rmsd=0.19223980907993865,
         ),
         CaseData(
             mol1=stk.BuildingBlock("c1ccccc1"),
             mol2=_optimizer.optimize(stk.BuildingBlock("c1ccccc1")),
-            rmsd=0.02936762392637932,
-            kabsch_rmsd=0.02936762392637932,
+            rmsd=0.032841285146032156,
+            kabsch_rmsd=0.032795057670018585,
         ),
         CaseData(
             mol1=_polymer,
             mol2=_optimizer.optimize(_polymer),
-            rmsd=2.1485735050384,
-            kabsch_rmsd=1.786251608496134,
+            rmsd=1.7661731164361503,
+            kabsch_rmsd=1.7223269859154275,
         ),
     ],
 )
@@ -110,13 +110,13 @@ def case_data(request: pytest.FixtureRequest) -> CaseData:
         CaseData(
             mol1=stk.BuildingBlock("NCCN"),
             mol2=_optimizer.optimize(stk.BuildingBlock("NCCN")),
-            rmsd=0.20811702035676308,
+            rmsd=0.21879819525792274,
             kabsch_rmsd=0.20811702035676308,
         ),
         CaseData(
             mol1=stk.BuildingBlock("CCCCCC"),
             mol2=_optimizer.optimize(stk.BuildingBlock("CCCCCC")),
-            rmsd=0.22563756374632568,
+            rmsd=0.08585307417542548,
             kabsch_rmsd=0.22563756374632568,
         ),
         CaseData(
@@ -128,13 +128,13 @@ def case_data(request: pytest.FixtureRequest) -> CaseData:
         CaseData(
             mol1=stk.BuildingBlock("c1ccccc1"),
             mol2=_optimizer.optimize(stk.BuildingBlock("c1ccccc1")),
-            rmsd=0.029156836455717483,
+            rmsd=0.03417702414054854,
             kabsch_rmsd=0.029156836455717483,
         ),
         CaseData(
             mol1=_polymer,
             mol2=_optimizer.optimize(_polymer),
-            rmsd=1.792856412415046,
+            rmsd=1.5861285062968584,
             kabsch_rmsd=1.792856412415046,
         ),
     ],
@@ -236,7 +236,7 @@ def ordering_case_data(request: pytest.FixtureRequest) -> CaseData:
                 np.array((0, 0, 0)),
             )
             .with_displacement(np.array((2, 0, 1))),
-            rmsd=1.1309858484314543,
+            rmsd=1.1330923155830888,
             kabsch_rmsd=1.1309858484314543,
         ),
         CaseData(
@@ -248,26 +248,26 @@ def ordering_case_data(request: pytest.FixtureRequest) -> CaseData:
                 np.array((0, 0, 0)),
             )
             .with_displacement(np.array((0, 0, 1))),
-            rmsd=0.5922202905739481,
+            rmsd=0.6239555728484898,
             kabsch_rmsd=0.5943193981905652,
         ),
         CaseData(
             mol1=stk.BuildingBlock("NCCN"),
             mol2=stk.BuildingBlock("NCCCN"),
-            rmsd=0.8832914099448816,
+            rmsd=0.885665672705266,
             kabsch_rmsd=0.8832914099448816,
         ),
         CaseData(
             mol1=stk.BuildingBlock("NCOCN"),
             mol2=stk.BuildingBlock("NCCN"),
-            rmsd=1.2678595995702466,
+            rmsd=1.2842057097676525,
             kabsch_rmsd=1.2678595995702466,
         ),
         CaseData(
             mol1=stk.BuildingBlock("NCCN"),
             mol2=stk.BuildingBlock("NCOCN"),
-            rmsd=1.3921770318522637,
-            kabsch_rmsd=1.3921770318522637,
+            rmsd=1.4164013380180553,
+            kabsch_rmsd=1.4164013380180553,
         ),
     ],
 )

@@ -16,14 +16,14 @@ def test_openmm(case_molecule: CaseData) -> None:
             # vacuum calculations (without constraints)
             force_field=ForceField("openff_unconstrained-2.1.0.offxml"),
             restricted=False,
-            partial_charges_method="espaloma-am1bcc",
+            partial_charges_method="mmff94",
         )
         opt_molecule = optimiser.optimize(case_molecule.molecule)
 
         energy = (
             stko.OpenMMEnergy(
                 force_field=ForceField("openff_unconstrained-2.1.0.offxml"),
-                partial_charges_method="espaloma-am1bcc",
+                partial_charges_method="mmff94",
             ).get_energy(opt_molecule),
         )
 

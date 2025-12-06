@@ -15,21 +15,21 @@ class CaseData:
     params=[
         CaseData(
             molecule=stk.BuildingBlock("NCCN"),
-            unoptimised_energy=18.706050515892986,
+            unoptimised_energy=18.487222241888883,
         ),
         CaseData(
             molecule=stk.BuildingBlock(
                 "C(#Cc1cccc2ccncc21)c1ccc2[nH]c3ccc(C#Cc4cccc5cnccc54)cc3c2c1"
             ),
-            unoptimised_energy=276.0206611549808,
+            unoptimised_energy=138.73518984157926,
         ),
         CaseData(
             molecule=stk.BuildingBlock("CCCCCC"),
-            unoptimised_energy=20.722743438967758,
+            unoptimised_energy=16.949470583172072,
         ),
         CaseData(
             molecule=stk.BuildingBlock("c1ccccc1"),
-            unoptimised_energy=13.516838919531384,
+            unoptimised_energy=14.760522274728105,
         ),
         CaseData(
             molecule=stk.ConstructedMolecule(
@@ -49,7 +49,7 @@ class CaseData:
                     optimizer=stk.MCHammer(),
                 ),
             ),
-            unoptimised_energy=5348.367149383393,
+            unoptimised_energy=4890.375436145811,
         ),
     ],
 )
@@ -62,21 +62,21 @@ def case_uff_molecule(request: pytest.FixtureRequest) -> CaseData:
     params=[
         CaseData(
             molecule=stk.BuildingBlock("NCCN"),
-            unoptimised_energy=26.518703818643935,
+            unoptimised_energy=26.422861818517934,
         ),
         CaseData(
             molecule=stk.BuildingBlock(
                 "C(#Cc1cccc2ccncc21)c1ccc2[nH]c3ccc(C#Cc4cccc5cnccc54)cc3c2c1"
             ),
-            unoptimised_energy=226.18914087716263,
+            unoptimised_energy=119.52858996294171,
         ),
         CaseData(
             molecule=stk.BuildingBlock("CCCCCC"),
-            unoptimised_energy=7.607569230469989,
+            unoptimised_energy=4.036151622820159,
         ),
         CaseData(
             molecule=stk.BuildingBlock("c1ccccc1"),
-            unoptimised_energy=17.833167064273834,
+            unoptimised_energy=18.64619045056115,
         ),
         CaseData(
             molecule=stk.ConstructedMolecule(
@@ -96,7 +96,7 @@ def case_uff_molecule(request: pytest.FixtureRequest) -> CaseData:
                     optimizer=stk.MCHammer(),
                 ),
             ),
-            unoptimised_energy=953.310417015842,
+            unoptimised_energy=1006.4204295019977,
         ),
     ],
 )
