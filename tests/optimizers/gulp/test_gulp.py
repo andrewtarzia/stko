@@ -28,14 +28,10 @@ class FakeGulpUFFMDOptimizer(GulpUFFMDOptimizer):
 @pytest.fixture
 def position_section() -> str:
     return (
-        "\ncartesian\n"
-        "C1 core -0.74031 0.03171 0.10194\n"
-        "C1 core 0.75974 -0.01804 -0.03434\n"
-        "H1 core -1.14779 -0.63142 -0.70939\n"
-        "H1 core -1.11274 -0.39237 1.04655\n"
-        "H1 core -1.12625 1.0535 -0.10345\n"
-        "H1 core 0.97939 0.03507 -1.13219\n"
-        "H1 core 1.25573 0.87341 0.40438\n"
+        "\ncartesian\nC1 core -0.74031 0.03171 0.10194\nC1 core 0.75639"
+        " -0.01926 -0.03667\nH1 core -1.14321 -0.62994 -0.70776\nH1 core"
+        " -1.11397 -0.39262 1.04725\nH1 core -1.12625 1.0535 -0.10345\n"
+        "H1 core 0.97944 0.0352 -1.13197\nH1 core 1.25569 0.87328 0.40415\n"
         "H1 core 1.13222 -0.95187 0.4265\n"
     )
 
@@ -170,7 +166,7 @@ def test_gulp_convert_traj_to_xyz(
     opt = FakeGulpUFFMDOptimizer(
         gulp_path="",
     )
-    test_atom_types, test_trajectory_data, _ = opt._convert_traj_to_xyz(  # noqa: SLF001
+    test_atom_types, _test_trajectory_data, _ = opt._convert_traj_to_xyz(  # noqa: SLF001
         output_xyz=test_xyz,
         output_traj=test_traj,
     )
@@ -178,8 +174,8 @@ def test_gulp_convert_traj_to_xyz(
     for i, t in zip(atom_types, test_atom_types, strict=False):
         assert i == t
 
-    for ts, test_ts_dict in trajectory.items():
-        ts_dict = trajectory[ts]
+    for test_ts_dict in trajectory.values():
+        ts_dict = test_ts_dict
         assert test_ts_dict["time"] == ts_dict["time"]
         assert test_ts_dict["KE"] == ts_dict["KE"]
         assert test_ts_dict["E"] == ts_dict["E"]
@@ -195,7 +191,7 @@ def test_gulp_calculate_lowest_energy_conformer(
     opt = FakeGulpUFFMDOptimizer(
         gulp_path="",
     )
-    atom_types, trajectory_data, xyz_traj_lines = opt._convert_traj_to_xyz(  # noqa: SLF001
+    _atom_types, trajectory_data, _xyz_traj_lines = opt._convert_traj_to_xyz(  # noqa: SLF001
         output_xyz=test_xyz,
         output_traj=test_traj,
     )
@@ -211,7 +207,7 @@ def test_gulp_write_conformer_xyz_file(xyz_string: str) -> None:
     opt = FakeGulpUFFMDOptimizer(
         gulp_path="",
     )
-    atom_types, trajectory_data, xyz_traj_lines = opt._convert_traj_to_xyz(  # noqa: SLF001
+    atom_types, trajectory_data, _xyz_traj_lines = opt._convert_traj_to_xyz(  # noqa: SLF001
         output_xyz=test_xyz,
         output_traj=test_traj,
     )
