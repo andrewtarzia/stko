@@ -60,10 +60,12 @@ class GeometryAnalyser:
 
         distances = {}
         for a1id, a2id in it.combinations(metal_atom_ids, 2):
-            distances[(a1id, a2id)] = get_atom_distance(
-                position_matrix=position_matrix,
-                atom1_id=a1id,
-                atom2_id=a2id,
+            distances[(a1id, a2id)] = float(
+                get_atom_distance(
+                    position_matrix=position_matrix,
+                    atom1_id=a1id,
+                    atom2_id=a2id,
+                )
             )
 
         return distances
@@ -95,7 +97,9 @@ class GeometryAnalyser:
         for a1id, a2id in it.combinations(metal_atom_ids, 2):
             vector1 = position_matrix[a1id] - centroid
             vector2 = position_matrix[a2id] - centroid
-            angles[(a1id, a2id)] = np.degrees(vector_angle(vector1, vector2))
+            angles[(a1id, a2id)] = float(
+                np.degrees(vector_angle(vector1, vector2))
+            )
 
         return angles
 
@@ -120,7 +124,7 @@ class GeometryAnalyser:
             molecule.get_centroid().reshape(1, 3),
         )
 
-        return np.min(pair_dists.flatten())
+        return float(np.min(pair_dists.flatten()))
 
     def get_avg_centroid_distance(
         self,
@@ -142,7 +146,7 @@ class GeometryAnalyser:
         )
         flattened = pair_dists.flatten()
 
-        return (np.mean(flattened), np.std(flattened))
+        return (float(np.mean(flattened)), float(np.std(flattened)))
 
     def _get_paths(
         self,
@@ -170,7 +174,7 @@ class GeometryAnalyser:
 
         """
         pair_dists = pdist(molecule.get_position_matrix())
-        return np.min(pair_dists.flatten())
+        return float(np.min(pair_dists.flatten()))
 
     def get_radius_gyration(self, molecule: stk.Molecule) -> float:
         """Get the radius of gyration of the molecule.
@@ -277,15 +281,15 @@ class GeometryAnalyser:
 
             if angle_type_option1 in angles:
                 angles[angle_type_option1].append(
-                    np.degrees(vector_angle(vector1, vector2))
+                    float(np.degrees(vector_angle(vector1, vector2)))
                 )
             elif angle_type_option2 in angles:
                 angles[angle_type_option2].append(
-                    np.degrees(vector_angle(vector1, vector2))
+                    float(np.degrees(vector_angle(vector1, vector2)))
                 )
             else:
                 angles[angle_type_option1].append(
-                    np.degrees(vector_angle(vector1, vector2))
+                    float(np.degrees(vector_angle(vector1, vector2)))
                 )
 
         return angles
