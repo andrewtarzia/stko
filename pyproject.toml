@@ -9,12 +9,16 @@ maintainers = [
     { name = "Lukas Turcani", email = "lukasturcani93@gmail.com" },
 ]
 dependencies = [
-    "numpy<2",
-    # Avoid one version with bad changes to structure.
-    "rdkit != 2024.3.5",
+    "numpy",
     "stk",
     "networkx",
     "rmsd",
+    "mdanalysis",
+    "openmm[cuda12]",
+    # Added to handle uv issue with metadata.
+    # From https://github.com/astral-sh/uv/issues/15876
+    "torch>=2.8.0",
+    "OpenMM-CUDA-12",
 ]
 requires-python = ">=3.11"
 dynamic = ["version"]
@@ -33,9 +37,8 @@ dev = [
     "pytest-cov",
     "sphinx",
     "sphinx-copybutton",
-    "sphinx-rtd-theme",
+    "sphinx-rtd-theme>0.5.1",
     "twine",
-    "build",
 ]
 
 [project.urls]
