@@ -56,10 +56,12 @@ class DitopicThreeSiteAnalyser:
             fg.get_binder().get_id()  # type: ignore[attr-defined]
             for fg in molecule.get_functional_groups()
         ]
-        return get_atom_distance(
-            position_matrix=molecule.get_position_matrix(),
-            atom1_id=binder_ids[0],
-            atom2_id=binder_ids[1],
+        return float(
+            get_atom_distance(
+                position_matrix=molecule.get_position_matrix(),
+                atom1_id=binder_ids[0],
+                atom2_id=binder_ids[1],
+            )
         )
 
     def get_adjacent_centroids(
@@ -114,8 +116,10 @@ class DitopicThreeSiteAnalyser:
         fg_vectors = [i - centroid_position for i in binder_positions]
 
         # Calculate the angle between the two vectors.
-        return np.degrees(
-            vector_angle(vector1=fg_vectors[0], vector2=fg_vectors[1])
+        return float(
+            np.degrees(
+                vector_angle(vector1=fg_vectors[0], vector2=fg_vectors[1])
+            )
         )
 
     def get_binder_binder_angle(self, molecule: stk.BuildingBlock) -> float:
@@ -135,7 +139,9 @@ class DitopicThreeSiteAnalyser:
             self._get_binder_adjacent_vector(molecule, fg, normalised=True)
             for fg in molecule.get_functional_groups()
         ]
-        return np.degrees(vector_angle(vector1=vectors[0], vector2=vectors[1]))
+        return float(
+            np.degrees(vector_angle(vector1=vectors[0], vector2=vectors[1]))
+        )
 
     def get_binder_angles(
         self,
@@ -169,8 +175,8 @@ class DitopicThreeSiteAnalyser:
             for fg in molecule.get_functional_groups()
         ]
         return (
-            180 - np.degrees(vector_angle(vectors[0], -binder_vector)),
-            180 - np.degrees(vector_angle(vectors[1], binder_vector)),
+            float(180 - np.degrees(vector_angle(vectors[0], -binder_vector))),
+            float(180 - np.degrees(vector_angle(vectors[1], binder_vector))),
         )
 
     def get_halfbite_angles(
@@ -202,7 +208,7 @@ class DitopicThreeSiteAnalyser:
 
         """
         binder_angles = self.get_binder_angles(molecule)
-        return (binder_angles[0] - 90, binder_angles[1] - 90)
+        return (float(binder_angles[0]) - 90, float(binder_angles[1]) - 90)
 
     def get_binder_adjacent_torsion(
         self, molecule: stk.BuildingBlock
@@ -225,11 +231,13 @@ class DitopicThreeSiteAnalyser:
             binder_centroids.append(self._get_binder_centroid(molecule, fg))
             adj_centroids.append(self._get_adj_centroid(molecule, fg))
 
-        return calculate_dihedral(
-            pt1=binder_centroids[0],
-            pt2=adj_centroids[0],
-            pt3=adj_centroids[1],
-            pt4=binder_centroids[1],
+        return float(
+            calculate_dihedral(
+                pt1=binder_centroids[0],
+                pt2=adj_centroids[0],
+                pt3=adj_centroids[1],
+                pt4=binder_centroids[1],
+            )
         )
 
     def _get_binder_centroid(
