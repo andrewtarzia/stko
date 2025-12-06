@@ -7,6 +7,9 @@ class PlanarityResults:
     def __init__(self, generator: abc.Iterable) -> None:
         self._values = next(generator)  # type: ignore[call-overload]
 
+    def get_atom_plane(self) -> float:
+        return self._values["atom_plane"]
+
     def get_planarity_parameter(self) -> float:
         return self._values["planarity_parameter"]
 

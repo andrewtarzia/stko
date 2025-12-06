@@ -145,6 +145,7 @@ class PlanarityCalculator:
             deviation_atom_ids=deviation_atom_ids,
         )
         yield {
+            "atom_plane": atom_plane,
             "plane_deviation": (self._plane_deviation(deviations)),
             "plane_deviation_span": (self._plane_deviation_span(deviations)),
             "planarity_parameter": (self._planarity_parameter(deviations)),
