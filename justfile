@@ -11,10 +11,8 @@ docs:
 # Install development environment.
 dev:
   pip install -e '.[dev]'
-  mamba install -y -c conda-forge pytorch==2.3.1 torchdata==0.7.1 openff-toolkit openmm openmmtools rdkit!=2024.3.5 dgl espaloma_charge
+  mamba install -y -c conda-forge openff-toolkit
   mamba install -y xtb
-  mamba install -y openbabel
-  mamba install -y mdanalysis
 
 
 # Run code checks.

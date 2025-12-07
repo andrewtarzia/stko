@@ -14,7 +14,7 @@ def test_openmm_energy(case_molecule: CaseData) -> None:
         energy = (
             stko.OpenMMEnergy(
                 force_field=ForceField("openff_unconstrained-2.1.0.offxml"),
-                partial_charges_method="espaloma-am1bcc",
+                partial_charges_method="mmff94",
             ).get_energy(case_molecule.molecule),
         )
 

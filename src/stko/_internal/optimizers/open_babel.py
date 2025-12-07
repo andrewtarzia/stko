@@ -21,6 +21,11 @@ logger = logging.getLogger(__name__)
 class OpenBabel(Optimizer):
     """Use OpenBabel to optimize molecules with forcefields.
 
+    .. warning::
+
+        This will not work for Python >= 3.13! See
+        https://github.com/JelfsMaterialsGroup/stko/issues/208
+
     Parameters:
         forcefield:
             Forcefield to use. Options include `uff`, `gaff`,
@@ -49,7 +54,7 @@ class OpenBabel(Optimizer):
         * OpenBabel: https://github.com/openbabel/openbabel
 
     Examples:
-        .. testcode:: obabel-optimisation
+        .. code-block:: python
 
             import stk
             import stko
@@ -57,13 +62,6 @@ class OpenBabel(Optimizer):
             mol = stk.BuildingBlock('NCCNCCN')
             openbabel = stko.OpenBabel('uff')
             opt_mol = openbabel.optimize(mol)
-
-        .. testcode:: obabel-optimisation
-            :hide:
-
-            assert stk.Smiles().get_key(mol) == stk.Smiles().get_key(opt_mol)
-            opt_e = stko.OpenBabelEnergy('uff').get_energy(opt_mol)
-            assert opt_e < stko.OpenBabelEnergy('uff').get_energy(mol)
 
     """
 

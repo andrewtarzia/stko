@@ -22,6 +22,11 @@ logger = logging.getLogger(__name__)
 class OpenBabelEnergy:
     """Uses OpenBabel to calculate forcefield energies.
 
+    .. warning::
+
+        This will not work for Python >= 3.13! See
+        https://github.com/JelfsMaterialsGroup/stko/issues/208
+
     Parameters:
         forcefield:
             Forcefield to use. Options include `uff`, `gaff`,
@@ -35,7 +40,7 @@ class OpenBabelEnergy:
         * OpenBabel: https://github.com/openbabel/openbabel
 
     Examples:
-        .. testcode:: obabel-energy
+        .. code-block:: python
 
             import stk
             import stko
@@ -50,12 +55,6 @@ class OpenBabelEnergy:
             results = energy_calc.get_results(mol1)
             energy = results.get_energy()
             unit_string = results.get_unit_string()
-
-        .. testcode:: obabel-energy
-            :hide:
-
-            assert energy == 195.20661518925408
-            assert unit_string == "kJ mol-1"
 
     """
 

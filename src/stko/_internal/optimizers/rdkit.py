@@ -147,7 +147,11 @@ class ETKDG(Optimizer):
     def optimize(self, mol: MoleculeT) -> MoleculeT:
         params = rdkit.ETKDGv2()
         params.clearConfs = True
-        params.random_seed = self._random_seed
+        try:
+            params.random_seed = self._random_seed
+        except AttributeError:
+            # Handle change in naming.
+            params.randomSeed = self._random_seed
 
         rdkit_mol = mol.to_rdkit_mol()
         rdkit.EmbedMolecule(rdkit_mol, params)
@@ -339,7 +343,7 @@ class MetalOptimizer(Optimizer):
     def optimize(self, mol: MoleculeT) -> MoleculeT:
         # Find all metal atoms and atoms they are bonded to.
         metal_atoms = get_metal_atoms(mol)
-        metal_bonds, ids_to_metals = get_metal_bonds(
+        metal_bonds, _ids_to_metals = get_metal_bonds(
             mol=mol, metal_atoms=metal_atoms
         )
 

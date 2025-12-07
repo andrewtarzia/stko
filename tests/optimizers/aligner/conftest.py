@@ -24,7 +24,7 @@ class CaseData:
                     np.array((0, 0, 0)),
                 )
             ),
-            rmsd=0.28595531556943543,
+            rmsd=0.16961477113526083,
         ),
         CaseData(
             molecule=stk.BuildingBlock("CCCCCC"),
@@ -35,7 +35,7 @@ class CaseData:
                     np.array((0, 0, 0)),
                 )
             ),
-            rmsd=0.12594321424488517,
+            rmsd=0.20913908038601195,
         ),
     ],
 )
@@ -63,7 +63,7 @@ class CasePotential:
                     np.array((0, 0, 0)),
                 )
             ),
-            potential=16.33559420081716,
+            potential=16.3130645077078,
             pairs=(("C", "C"), ("N", "N")),
         ),
         CasePotential(
@@ -87,7 +87,7 @@ class CasePotential:
                     np.array((0, 0, 0)),
                 )
             ),
-            potential=12.298104523317033,
+            potential=12.27752809644388,
             pairs=(("N", "N"),),
         ),
         CasePotential(

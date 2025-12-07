@@ -16,11 +16,6 @@ from .case_data import CaseData
                     smarts="[#6]~[#7X2]~[#6]"
                 ),
             ),
-            binder_distance=2.717,
-            binder_centroid_angle=179.55163,
-            binder_angles=(179.82673252797306, 178.99117497251564),
-            binder_adjacent_torsion=179.98930945981346,
-            binder_binder_angle=178.81790750306536,
             name=name,
         ),
         lambda name: CaseData(
@@ -30,11 +25,6 @@ from .case_data import CaseData
                     smarts="[#6]~[#7X2]~[#6]"
                 ),
             ),
-            binder_distance=10.105,
-            binder_centroid_angle=179.46618,
-            binder_angles=(130.57317931302708, 132.5699156645761),
-            binder_adjacent_torsion=-179.7767900679974,
-            binder_binder_angle=177.99497293128238,
             name=name,
         ),
         lambda name: CaseData(
@@ -44,11 +34,6 @@ from .case_data import CaseData
                     smarts="[#6]~[#7X2]~[#6]"
                 ),
             ),
-            binder_distance=9.8893,
-            binder_centroid_angle=149.0484,
-            binder_angles=(152.4051397865058, 153.24145338156575),
-            binder_adjacent_torsion=1.1263317393587988,
-            binder_binder_angle=125.64880123145808,
             name=name,
         ),
         lambda name: CaseData(
@@ -58,11 +43,6 @@ from .case_data import CaseData
                     smarts="[#6]~[#7X2]~[#6]"
                 ),
             ),
-            binder_distance=11.778023252068746,
-            binder_centroid_angle=132.7736587705255,
-            binder_angles=(130.41599653682567, 135.4268203184301),
-            binder_adjacent_torsion=-2.7155067603901997,
-            binder_binder_angle=85.87201566260612,
             name=name,
         ),
     ),

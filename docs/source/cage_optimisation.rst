@@ -1,5 +1,5 @@
-Cage optimisation workflow
-==========================
+Cage optimisation workflow using OpenMM/OpenFF
+==============================================
 
 Here we implement a cage optimisation workflow similar to that found `here <https://pubs.rsc.org/en/content/articlelanding/2018/sc/c8sc03560a>`_
 but using the open-source `OpenMM <https://openmm.org/>`_ and
@@ -9,6 +9,11 @@ This is shown in an example
 `script <https://github.com/JelfsMaterialsGroup/stko/blob/master/examples/cage_openmm_example.py>`_
 that we run through below.
 
+.. warning::
+
+    OpenMM/OpenFF workflows are more efficient when using GPUs, which is
+    possible with ``stko`` if you have a GPU and if you install the `cuda`
+    option, like so: ``pip install 'stko[cuda]'``.
 
 First we build a cage, the classic CC3 porous organic cage. But note, we are
 not handling the detailed stereochemistry of this system here.
@@ -91,7 +96,7 @@ from these settings.
 
     # Settings.
     force_field = ForceField("openff_unconstrained-2.1.0.offxml")
-    partial_charges = "espaloma-am1bcc"
+    partial_charges = "mmff94"
     temperature = 700 * openmm.unit.kelvin
     friction = 10 / openmm.unit.picoseconds
     time_step = 1 * openmm.unit.femtoseconds
