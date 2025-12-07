@@ -27,14 +27,14 @@ To get ``stko``, you can install it with pip:
 
   pip install stko
 
-  Some optional dependencies are only available through conda:
+Some optional dependencies are only available through conda:
 
-  .. code-block:: bash
+.. code-block:: bash
 
-    # for xtb
-    mamba install xtb
-    # for openbabel, assuming you are not using Python >= 3.13!
-    mamba install openbabel
+  # for xtb
+  mamba install xtb
+  # for openbabel, assuming you are not using Python >= 3.13!
+  mamba install openbabel
 
 
 With OpenMM
