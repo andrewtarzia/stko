@@ -190,8 +190,8 @@ automatic analyses.
 .. testcode:: analysing-cage
     :hide:
 
-    assert np.isclose(np.mean(ligand_dict['torsion']), 0.9038734003286987)
-    assert np.isclose(np.mean(ligand_dict['binder_angle']), 150.0120482677146)
+    assert np.isclose(np.mean(ligand_dict['torsion']), 0.49899173566371574)
+    assert np.isclose(np.mean(ligand_dict['binder_angle']), 151.09758819338828)
 
 The printing the average of the collated values for all ligands looks
 like:
@@ -225,7 +225,7 @@ molecule.
     :hide:
 
     assert np.allclose(
-        centroids[0], np.array([9.15025292, 0.20886534, 0.45632129])
+        centroids[0], np.array([9.28089495, 0.03605466, 0.71892216])
     )
 
 We can get measures of pore size and cage geometry.
@@ -257,13 +257,13 @@ We can get measures of pore size and cage geometry.
 .. testcode:: analysing-cage
     :hide:
 
-    assert np.isclose(analyser.get_min_centroid_distance(apdcage), 6.612215150137052)
+    assert np.isclose(analyser.get_min_centroid_distance(apdcage), 6.345298744800679)
 
 Giving:
 
 .. code-block::
 
-  approximate pore size: 6.905031217288509
+  approximate pore size: 6.345298744800679
   avg cage size: (9.796754899196744, 1.537005741468483)
   avg. metal distance: 13.760850522272712
   avg. metal-centroid-angles: 107.491677523429

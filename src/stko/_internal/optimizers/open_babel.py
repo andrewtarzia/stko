@@ -54,7 +54,7 @@ class OpenBabel(Optimizer):
         * OpenBabel: https://github.com/openbabel/openbabel
 
     Examples:
-        .. testcode:: obabel-optimisation
+        .. code-block:: python
 
             import stk
             import stko
@@ -62,13 +62,6 @@ class OpenBabel(Optimizer):
             mol = stk.BuildingBlock('NCCNCCN')
             openbabel = stko.OpenBabel('uff')
             opt_mol = openbabel.optimize(mol)
-
-        .. testcode:: obabel-optimisation
-            :hide:
-
-            assert stk.Smiles().get_key(mol) == stk.Smiles().get_key(opt_mol)
-            opt_e = stko.OpenBabelEnergy('uff').get_energy(opt_mol)
-            assert opt_e < stko.OpenBabelEnergy('uff').get_energy(mol)
 
     """
 

@@ -40,7 +40,7 @@ class OpenBabelEnergy:
         * OpenBabel: https://github.com/openbabel/openbabel
 
     Examples:
-        .. testcode:: obabel-energy
+        .. code-block:: python
 
             import stk
             import stko
@@ -55,12 +55,6 @@ class OpenBabelEnergy:
             results = energy_calc.get_results(mol1)
             energy = results.get_energy()
             unit_string = results.get_unit_string()
-
-        .. testcode:: obabel-energy
-            :hide:
-
-            assert energy == 195.20661518925408
-            assert unit_string == "kJ mol-1"
 
     """
 

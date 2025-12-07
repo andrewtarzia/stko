@@ -1,5 +1,5 @@
-Host-guest complexes with OpenMM
-================================
+Host-guest complexes with OpenMM/OpenFF
+=======================================
 
 Here we build on the cage optimisation workflow to show how to build host-guest
 systems using the open-source `OpenMM <https://openmm.org/>`_ and
@@ -9,6 +9,11 @@ This is shown in an example
 `script <https://github.com/JelfsMaterialsGroup/stko/blob/master/examples/openmm_hg_example.py>`_
 that we run through below.
 
+.. warning::
+
+    OpenMM/OpenFF workflows are more efficient when using GPUs, which is
+    possible with ``stko`` if you have a GPU and if you install the `cuda`
+    option, like so: ``pip install 'stko[cuda]'``.
 
 First we load a cage from the previous example, the classic CC3 porous organic
 cage. And we build to `stk.host_guest.Guest` objects.
