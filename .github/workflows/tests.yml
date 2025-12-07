@@ -12,7 +12,7 @@ jobs:
             - uses: actions/checkout@v3
             - uses: actions/setup-python@v4
               with:
-                  python-version: "3.11"
+                  python-version: "3.13"
                   cache: "pip"
             - run: "pip install '.[dev]'"
             - run: ruff check .
@@ -23,7 +23,7 @@ jobs:
             - uses: actions/checkout@v3
             - uses: actions/setup-python@v4
               with:
-                  python-version: "3.11"
+                  python-version: "3.13"
                   cache: "pip"
             - run: "pip install -e '.[dev]'"
             - run: mypy src examples
@@ -34,7 +34,7 @@ jobs:
             - uses: actions/checkout@v3
             - uses: actions/setup-python@v4
               with:
-                  python-version: "3.11"
+                  python-version: "3.13"
                   cache: "pip"
             - run: "pip install -e '.[dev]'"
             - run: ruff format --check .
@@ -52,7 +52,7 @@ jobs:
 
               with:
                   miniforge-version: latest
-                  python-version: 3.11
+                  python-version: 3.13
                   activate-environment: pytest
 
             - name: Build environment
@@ -76,7 +76,7 @@ jobs:
 
               with:
                   miniforge-version: latest
-                  python-version: 3.11
+                  python-version: 3.13
                   activate-environment: pytest
 
             - name: Build environment
@@ -101,7 +101,7 @@ jobs:
 
               with:
                   miniforge-version: latest
-                  python-version: 3.11
+                  python-version: 3.13
                   activate-environment: pytest
 
             - name: Build environment
