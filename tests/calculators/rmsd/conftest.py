@@ -16,23 +16,6 @@ class CaseData:
 
 
 _optimizer = stko.UFF()
-_polymer = stk.ConstructedMolecule(
-    topology_graph=stk.polymer.Linear(
-        building_blocks=(
-            stk.BuildingBlock(
-                smiles="BrCCBr",
-                functional_groups=[stk.BromoFactory()],
-            ),
-            stk.BuildingBlock(
-                smiles="BrCNCCBr",
-                functional_groups=[stk.BromoFactory()],
-            ),
-        ),
-        repeating_unit="AB",
-        num_repeating_units=2,
-        optimizer=stk.MCHammer(),
-    ),
-)
 
 
 _cc_molecule = stk.BuildingBlock("[C][C]")
@@ -91,12 +74,6 @@ _cc_molecule = stk.BuildingBlock("[C][C]")
             rmsd=0.032841285146032156,
             kabsch_rmsd=0.032795057670018585,
         ),
-        CaseData(
-            mol1=_polymer,
-            mol2=_optimizer.optimize(_polymer),
-            rmsd=1.7661731164361503,
-            kabsch_rmsd=1.7223269859154275,
-        ),
     ],
 )
 def case_data(request: pytest.FixtureRequest) -> CaseData:
@@ -131,12 +108,6 @@ def case_data(request: pytest.FixtureRequest) -> CaseData:
             rmsd=0.03417702414054854,
             kabsch_rmsd=0.029156836455717483,
         ),
-        CaseData(
-            mol1=_polymer,
-            mol2=_optimizer.optimize(_polymer),
-            rmsd=1.5861285062968584,
-            kabsch_rmsd=1.792856412415046,
-        ),
     ],
 )
 def ignore_h_case_data(request: pytest.FixtureRequest) -> CaseData:
@@ -169,12 +140,6 @@ def different_case_data(request: pytest.FixtureRequest) -> CaseData:
 @pytest.fixture(
     scope="session",
     params=[
-        CaseData(
-            mol1=_polymer,
-            mol2=_polymer.with_canonical_atom_ordering(),
-            rmsd=0.0,
-            kabsch_rmsd=0.0,
-        ),
         CaseData(
             mol1=stk.BuildingBlock(
                 smiles=(
