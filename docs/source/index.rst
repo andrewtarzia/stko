@@ -32,9 +32,18 @@ Welcome to stko's documentation!
 
 .. figure:: _static/logo.png
 
+Overview
+========
 
-Install
-=======
+`stko <https://github.com/JelfsMaterialsGroup/stko>`_ is a Python library for
+performing optimizations and calculations on complex molecules built using
+`stk <https://github.com/lukasturcani/stk>`_. In the case of
+optimizations, a clone of :class:`stk.Molecule` is returned. For
+calculators, a ``Results`` class are used to calculate and extract
+properties of an :class:`stk.Molecule`.
+
+Installation
+============
 
 :mod:`.stko` can be installed directly with pip:
 
@@ -48,7 +57,7 @@ Some optional dependencies are only available through conda:
 
   # for xtb
   mamba install xtb
-  # for openbabel
+  # for openbabel, assuming you are not using Python >= 3.13!
   mamba install openbabel
 
 With OpenMM
@@ -60,16 +69,27 @@ requirements:
 
 .. code-block:: bash
 
-  # for OpenMM and espaloma charge
-  # note the temporary issue with rdkit versions and conda will overwrite pip
-  # installed software
-  mamba install -c conda-forge pytorch==2.3.1 torchdata==0.7.1 openff-toolkit openmm openmmtools dgl rdkit==2024.3.4 espaloma_charge
+  mamba install -c conda-forge openff-toolkit
 
-Then install :mod:`.stko` with pip:
+Then install :mod:`.stko` with pip, but with the cuda variant to take advantage
+of GPU speed up (note that this is a heavy installation!).
 
 .. code-block:: bash
 
-  pip install stko
+  pip install stko[cuda]
+
+We also removed the default installation of ``espaloma_charge`` that provides
+the ML-based ``espaloma-am1bcc`` partial charges method. If users want this
+package, create a new environment and install their dependancies (if this
+fails, please check their
+`instructions <https://github.com/choderalab/espaloma-charge>`_), then install
+``stko``:
+
+.. code-block:: bash
+
+    mamba install -c conda-forge espaloma_charge openff-toolkit
+    pip install stko[cuda]
+
 
 Developer Setup
 ---------------
@@ -88,26 +108,16 @@ Developer Setup
 Dependencies
 ------------
 
-The software packages we offer optimizers are also depencies depending
+The software packages we offer optimizers for are also depencies depending
 on the desired functions used. These are:
 
-* `MacroModel <https://sites.google.com/site/orcainputlibrary/home/>`_
+* `MacroModel <https://www.schrodinger.com/platform/products/macromodel/>`_
 * `GULP <http://gulp.curtin.edu.au/gulp/>`_
 * `XTB <https://xtb-docs.readthedocs.io/en/latest/>`_
 * `OpenBabel <https://github.com/openbabel/openbabel>`_
 * `OpenMM <https://openmm.org/>`_
 * `OpenFF <https://openforcefield.org/>`_
 
-
-Overview
-========
-
-`stko <https://github.com/JelfsMaterialsGroup/stko>`_ is a Python library which
-performs optimizations and calculations on complex molecules built using
-`stk <https://github.com/lukasturcani/stk>`_. In the case of
-optimizations, a clone of :class:`stk.Molecule` is returned. For
-calculators, a ``Results`` class are used to calculate and extract
-properties of an :class:`stk.Molecule`.
 
 Examples
 --------
@@ -132,9 +142,20 @@ These cover:
 * `Analysing torsions <https://github.com/JelfsMaterialsGroup/stko/blob/master/examples/torsion_example.py>`_
 * `Converting molecules to their Zmatrix <https://github.com/JelfsMaterialsGroup/stko/blob/master/examples/zmatrix_example.py>`_
 
-Indices and Tables
-==================
+How To Contribute
+-----------------
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+If you have any questions or find problems with the code, please submit
+an issue.
+
+If you wish to add your own code to this repository, please send us a
+Pull Request. Please maintain the testing and style that is used
+throughout ```stko``.
+
+
+How To Cite
+-----------
+
+If you use ``stko`` please cite
+
+    https://github.com/JelfsMaterialsGroup/stko
