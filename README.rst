@@ -12,9 +12,9 @@ Overview
 `stko <https://github.com/JelfsMaterialsGroup/stko>`_ is a Python library for
 performing optimizations and calculations on complex molecules built using
 `stk <https://github.com/lukasturcani/stk>`_. In the case of
-optimizations, a clone of :class:`stk.Molecule` is returned. For
+optimizations, a clone of ``stk.Molecule`` is returned. For
 calculators, a ``Results`` class are used to calculate and extract
-properties of an :class:`stk.Molecule`. There is a Discord server
+properties of an ``stk.Molecule``. There is a Discord server
 for ``stk``, which can be joined through https://discord.gg/zbCUzuxe2B.
 
 
