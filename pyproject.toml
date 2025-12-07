@@ -14,11 +14,7 @@ dependencies = [
     "networkx",
     "rmsd",
     "mdanalysis",
-    "openmm[cuda12]",
-    # Added to handle uv issue with metadata.
-    # From https://github.com/astral-sh/uv/issues/15876
-    "torch>=2.8.0",
-    "OpenMM-CUDA-12",
+    "openmm",
 ]
 requires-python = ">=3.11"
 dynamic = ["version"]
@@ -39,6 +35,12 @@ dev = [
     "sphinx-copybutton",
     "sphinx-rtd-theme>0.5.1",
     "twine",
+]
+cuda = [
+    # Added to handle uv issue with metadata.
+    # From https://github.com/astral-sh/uv/issues/15876
+    "torch>=2.8.0",
+    "OpenMM-CUDA-12",
 ]
 
 [project.urls]
