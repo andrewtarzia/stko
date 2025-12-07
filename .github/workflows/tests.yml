@@ -58,10 +58,10 @@ jobs:
             - name: Build environment
               run: |
                   conda activate pytest
-                  conda install -c conda-forge openff-toolkit
                   python -m pip install --upgrade pip
                   python -m pip install --upgrade setuptools
                   python -m pip install -e '.[dev]'
+                  conda install -c conda-forge openff-toolkit
             - run: pytest
 
     example-tests:
@@ -82,10 +82,10 @@ jobs:
             - name: Build environment
               run: |
                   conda activate pytest
-                  conda install -c conda-forge openff-toolkit
                   python -m pip install --upgrade pip
                   python -m pip install --upgrade setuptools
                   python -m pip install -e '.[dev]'
+                  conda install -c conda-forge openff-toolkit
             - name: Run script
               run: python examples/testable_example.py
 
@@ -107,8 +107,8 @@ jobs:
             - name: Build environment
               run: |
                   conda activate pytest
-                  conda install -c conda-forge openff-toolkit
                   python -m pip install --upgrade pip
                   python -m pip install --upgrade setuptools
                   python -m pip install -e '.[dev]'
+                  conda install -c conda-forge openff-toolkit
             - run: make -C docs doctest
